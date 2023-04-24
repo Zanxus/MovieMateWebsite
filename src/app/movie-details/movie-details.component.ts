@@ -21,6 +21,9 @@ export class MovieDetailsComponent implements OnInit {
     });
   }
   ngOnInit() {
+    this.movie = this.route.snapshot.data['movie'];
+    this.movie$ = this.route.snapshot.data['movie'];
+    console.log(this.movie, "mark test")
     this.movie$ = this.route.data.pipe(map(data => data["movie"]));
     console.log(this.movie$, "test")
   }

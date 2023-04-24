@@ -1,13 +1,15 @@
+
 <div *ngIf="movie$ | async as movie">
-  <h1>{{ movie['title'] }}</h1>
-  <p>{{ movie['plot'] }}</p>
-  <img [src]="movie['poster']" alt="Movie Poster">
+  <h1>{{ movie.Title }}</h1>
+  <p>{{ movie.Plot}}</p>
+  <img [src]="movie.Poster" alt="Movie Poster">
   <ul>
-    <li>Year: {{ movie['year'] }}</li>
-    <li>Director: {{ movie['director'] }}</li>
-    <li>Actors: {{ movie['actors'] }}</li>
-    <li>Runtime: {{ movie['runtime'] }}</li>
-    <li>Genre: {{ movie['genre'] }}</li>
+    <li>Year: {{ movie.Year }}</li>
+    <li>Director: {{ movie.Director }}</li>
+    <li>Actors: {{ movie.Actors }}</li>
+    <li>Runtime: {{ movie.Runtime }}</li>
+    <li>Genre: {{ movie.Genre }}</li>
   </ul>
 </div>
 
+<h1></h1>
