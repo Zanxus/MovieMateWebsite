@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {MenuItem} from "primeng/api";
 
 @Component({
   selector: 'app-home-component',
@@ -10,7 +11,10 @@ import {Observable} from "rxjs";
 })
 export class HomeComponent {
   title = 'MovieMate';
+  menuItems: MenuItem[] = [
+    { label: 'Home', routerLink: '/home' },
 
+  ];
   constructor(private http: HttpClient) {
 
   }

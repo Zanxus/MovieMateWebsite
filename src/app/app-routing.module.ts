@@ -5,10 +5,12 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import {MovieResolver, movieResolver} from "./movie.resolver";
 import {Observable} from "rxjs";
 import {Movie} from "./models/movie";
+import {LoginComponent} from "./login/login.component";
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent,pathMatch : 'full' },
+  {path: 'login',component: LoginComponent, pathMatch: "full"},
   { path: 'details/:id', component: MovieDetailsComponent,pathMatch : 'full' ,data : Observable<Movie>,
    resolve: {movie: movieResolver }},
   {path: '', redirectTo: 'home', pathMatch: 'full'},

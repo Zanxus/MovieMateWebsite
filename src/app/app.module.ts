@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+
 import { ButtonModule} from "primeng/button";
 import { FormsModule } from '@angular/forms';
-import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {TableModule} from "primeng/table";
 import {AutoCompleteModule} from "primeng/autocomplete";
@@ -12,6 +13,13 @@ import {RouterModule} from "@angular/router";
 import { HomeComponent } from './home/home.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { CardModule } from 'primeng/card';
+import {MenubarModule} from "primeng/menubar";
+import { LoginComponent } from './login/login.component';
+import {InputTextModule} from "primeng/inputtext";
+import {CheckboxModule} from "primeng/checkbox";
+import {PanelModule} from "primeng/panel";
+import {PasswordModule} from "primeng/password";
 
 
 @NgModule({
@@ -20,6 +28,7 @@ import {AppRoutingModule} from "./app-routing.module";
     HomeComponent,
     SearchBarComponent,
     MovieDetailsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +39,13 @@ import {AppRoutingModule} from "./app-routing.module";
     AutoCompleteModule,
     BrowserAnimationsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CardModule,
+    MenubarModule,
+    InputTextModule,
+    CheckboxModule,
+    PanelModule,
+    PasswordModule
   ],
   providers: [],
   bootstrap: [AppComponent]

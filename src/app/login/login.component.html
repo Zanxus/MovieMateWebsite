@@ -1,0 +1,21 @@
+<div class="login-container">
+  <div class="p-shadow-4 p-p-6 p-col-10 p-md-6 p-lg-4">
+    <h2 class="p-text-center">Login</h2>
+    <form>
+      <div>
+        <label for="username">Username</label>
+        <input id="username" type="text" pInputText class="p-inputtext-lg p-d-block">
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input id="password" type="password" pPassword class="p-inputtext-lg p-d-block">
+      </div>
+      <div class="p-d-flex p-jc-between">
+        <button pButton type="submit" label="Login" class="p-button-primary" (click)="login()"></button>
+        <button pButton type="button" label="Register" (click)="register()" class="p-button-text"></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+

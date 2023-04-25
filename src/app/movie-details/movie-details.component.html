@@ -1,15 +1,38 @@
 
 <div *ngIf="movie$ | async as movie">
-  <h1>{{ movie.Title }}</h1>
-  <p>{{ movie.Plot}}</p>
-  <img [src]="movie.Poster" alt="Movie Poster">
-  <ul>
-    <li>Year: {{ movie.Year }}</li>
-    <li>Director: {{ movie.Director }}</li>
-    <li>Actors: {{ movie.Actors }}</li>
-    <li>Runtime: {{ movie.Runtime }}</li>
-    <li>Genre: {{ movie.Genre }}</li>
-  </ul>
+  <p-card>
+    <div class="p-grid p-nogutter">
+      <div class="p-col-12 p-md-3 p-lg-2">
+        <img src="{{ movie.Poster }}" alt="{{ movie.Title }} poster" class="movie-poster">
+      </div>
+      <div class="p-col">
+        <h1>{{ movie.Title }}</h1>
+        <div class="p-grid p-nogutter">
+          <div class="p-col">
+            <p><strong>Release Date:</strong> {{ movie.Released }}</p>
+          </div>
+          <div class="p-col">
+            <p><strong>Runtime:</strong> {{ movie.Runtime }}</p>
+          </div>
+          <div class="p-col">
+            <p><strong>Genre:</strong> {{ movie.Genre }}</p>
+          </div>
+        </div>
+        <div class="p-grid p-nogutter">
+          <div class="p-col">
+            <p><strong>Director:</strong> {{ movie.Director }}</p>
+          </div>
+          <div class="p-col">
+            <p><strong>Writer:</strong> {{ movie.Writer }}</p>
+          </div>
+          <div class="p-col">
+            <p><strong>Actors:</strong> {{ movie.Actors }}</p>
+          </div>
+        </div>
+        <p><strong>Plot:</strong> {{ movie.Plot }}</p>
+      </div>
+    </div>
+  </p-card>
 </div>
 
 <h1></h1>
