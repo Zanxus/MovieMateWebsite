@@ -7,13 +7,14 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://localhost:7008';
   private tokenKey = 'jwtToken';
 
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.post<{token: string}>(`${this.baseUrl}/login`, {username: username, password: password})
+    console.log(password,username);
+    return this.http.post<{token: string}>(`${this.baseUrl}/api/Authentication/authenticate`, {username: username, password: password})
       .pipe(
         map(result => {
           if (result && result.token) {
@@ -27,7 +28,7 @@ export class AuthenticationService {
   }
 
   register(username: string, password: string): Observable<boolean> {
-    return this.http.post<{token: string}>(`${this.baseUrl}/register`, {username: username, password: password})
+    return this.http.post<{token: string}>(`${this.baseUrl}/api/Authentication/register`, {username: username, password: password})
       .pipe(
         map(result => {
           if (result && result.token) {

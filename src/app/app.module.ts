@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 import { ButtonModule} from "primeng/button";
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import {TableModule} from "primeng/table";
 import {AutoCompleteModule} from "primeng/autocomplete";
@@ -20,6 +20,7 @@ import {InputTextModule} from "primeng/inputtext";
 import {CheckboxModule} from "primeng/checkbox";
 import {PanelModule} from "primeng/panel";
 import {PasswordModule} from "primeng/password";
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -29,24 +30,26 @@ import {PasswordModule} from "primeng/password";
     SearchBarComponent,
     MovieDetailsComponent,
     LoginComponent,
+    NavbarComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    ButtonModule,
-    TableModule,
-    AutoCompleteModule,
-    BrowserAnimationsModule,
-    RouterModule,
-    AppRoutingModule,
-    CardModule,
-    MenubarModule,
-    InputTextModule,
-    CheckboxModule,
-    PanelModule,
-    PasswordModule
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        ButtonModule,
+        TableModule,
+        AutoCompleteModule,
+        BrowserAnimationsModule,
+        RouterModule,
+        AppRoutingModule,
+        CardModule,
+        MenubarModule,
+        InputTextModule,
+        CheckboxModule,
+        PanelModule,
+        PasswordModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

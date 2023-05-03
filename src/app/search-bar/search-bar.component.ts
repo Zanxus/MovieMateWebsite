@@ -26,5 +26,11 @@ export class SearchBarComponent {
     this.router.navigate(['/details/', result.imdbID]);
   }
 
+  selectFirstResult() {
+    if (this.suggestions && this.suggestions.length > 0) {
+      this.onResultSelected(this.suggestions[0]);
+    }
+  }
+
 }
 
