@@ -5,6 +5,11 @@
     </a>
   </ng-template>
   <ng-template pTemplate="end">
-    <button pButton label="Login" routerLink="/login"></button>
+    <button *ngIf="isLoggedIn; else loginButton" pButton label="Logout" (click)="logout()"></button>
+
+    <ng-template #loginButton>
+      <button pButton label="Login" routerLink="/login"></button>
+    </ng-template>
   </ng-template>
+
 </p-menubar>

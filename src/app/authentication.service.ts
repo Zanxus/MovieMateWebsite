@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private baseUrl = 'https://localhost:7008';
+  private baseUrl = 'http://localhost:5001';
   private tokenKey = 'jwtToken';
 
   constructor(private http: HttpClient) { }
@@ -47,6 +47,18 @@ export class AuthenticationService {
 
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
+  }
+
+   getUserInfo() {
+    const token = this.getToken();
+    let payload;
+    if (token) {
+      payload = token.split(".")[1];
+      payload = window.atob(payload);
+      return JSON.parse(payload);
+    } else {
+      return null;
+    }
   }
 
   isLoggedIn(): boolean {

@@ -17,7 +17,7 @@ export class Movie {
   public Metascore: string;
   public ImdbRating: string;
   public ImdbVotes: string;
-  public IOmdbID: string;
+  public ImdbID: string;
   public Type: string;
   public DVD: string;
   public BoxOffice: string;
@@ -44,7 +44,7 @@ export class Movie {
     this.Metascore = movieData.Metascore;
     this.ImdbRating = movieData.imdbRating;
     this.ImdbVotes = movieData.imdbVotes;
-    this.IOmdbID = movieData.imdbID;
+    this.ImdbID = movieData.imdbID;
     this.Type = movieData.Type;
     this.DVD = movieData.DVD;
     this.BoxOffice = movieData.BoxOffice;

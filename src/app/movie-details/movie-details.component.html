@@ -30,9 +30,17 @@
           </div>
         </div>
         <p><strong>Plot:</strong> {{ movie.Plot }}</p>
+        <div class="p-grid p-nogutter">
+          <div class="p-col">
+            <p-dropdown [options]="trackedStateOptions" [(ngModel)]="selectedState"></p-dropdown>
+            <p-button type="button" label="Track Movie" (click)="trackMovie(movie.ImdbID, selectedState)"></p-button>
+          </div>
+          <div class="p-col">
+          </div>
+        </div>
       </div>
     </div>
   </p-card>
 </div>
 
-<h1></h1>
+

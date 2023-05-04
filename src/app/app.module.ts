@@ -21,6 +21,8 @@ import {CheckboxModule} from "primeng/checkbox";
 import {PanelModule} from "primeng/panel";
 import {PasswordModule} from "primeng/password";
 import { NavbarComponent } from './navbar/navbar.component';
+import {DropdownModule} from "primeng/dropdown";
+import {TagModule} from "primeng/tag";
 
 
 @NgModule({
@@ -32,24 +34,26 @@ import { NavbarComponent } from './navbar/navbar.component';
     LoginComponent,
     NavbarComponent,
   ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        HttpClientModule,
-        ButtonModule,
-        TableModule,
-        AutoCompleteModule,
-        BrowserAnimationsModule,
-        RouterModule,
-        AppRoutingModule,
-        CardModule,
-        MenubarModule,
-        InputTextModule,
-        CheckboxModule,
-        PanelModule,
-        PasswordModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    ButtonModule,
+    TableModule,
+    AutoCompleteModule,
+    BrowserAnimationsModule,
+    RouterModule,
+    AppRoutingModule,
+    CardModule,
+    MenubarModule,
+    InputTextModule,
+    CheckboxModule,
+    PanelModule,
+    PasswordModule,
+    ReactiveFormsModule,
+    DropdownModule,
+    TagModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
