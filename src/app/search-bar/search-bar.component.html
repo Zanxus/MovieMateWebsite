@@ -1,0 +1,9 @@
+<p-autoComplete
+  [(ngModel)]="searchTerm"
+  [suggestions]="suggestions"
+  (completeMethod)="search($event)"
+  field="Title"
+  placeholder="Search for movie or series"
+  (onSelect)="onResultSelected($event)"
+  (keyup.enter)="selectFirstResult()"
+></p-autoComplete>
