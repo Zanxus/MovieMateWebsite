@@ -1,18 +1,20 @@
 
 export interface TrackedMedia {
   id: number;
-  title: string;
-  year: number;
   imdbId: string;
   trackedState: TrackedState;
   userId: string;
-  watchLinks :string[];
+}
+export interface TrackedMediaSimple {
+  id: number;
+  imdbId: string;
+  trackedState: TrackedState;
 }
 
 export enum TrackedState {
-  PlanToWatch = 'PlanToWatch',
-  Watching = 'Watching',
-  Completed = 'Completed',
-  OnHold = 'OnHold',
-  Dropped = 'Dropped',
+  PlanToWatch = 0,
+  Watching = 1,
+  Completed = 2,
+  OnHold = 3,
+  Dropped = 4,
 }

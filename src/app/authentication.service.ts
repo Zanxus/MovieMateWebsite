@@ -61,6 +61,18 @@ export class AuthenticationService {
     }
   }
 
+  getUserId(){
+    const token = this.getToken();
+    let payload;
+    if (token) {
+      payload = token.split(".")[1];
+      payload = window.atob(payload);
+      return JSON.parse(payload).UserId;
+    } else {
+      return null;
+    }
+  }
+
   isLoggedIn(): boolean {
     const token = this.getToken();
     if (token) {

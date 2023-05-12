@@ -1,5 +1,5 @@
 
-<div *ngIf="movie$ | async as movie">
+<div *ngIf="movie$ | async ">
   <p-card>
     <div class="p-grid p-nogutter">
       <div class="p-col-12 p-md-3 p-lg-2">
@@ -33,13 +33,20 @@
         <div class="p-grid p-nogutter">
           <div class="p-col">
             <p-dropdown [options]="trackedStateOptions" [(ngModel)]="selectedState"></p-dropdown>
-            <p-button type="button" label="Track Movie" (click)="trackMovie(movie.ImdbID, selectedState)"></p-button>
+            <p-button type="button" label="Track Movie" (click)="trackMovie()"></p-button>
           </div>
           <div class="p-col">
           </div>
         </div>
       </div>
     </div>
+
+    <ul>
+      <li *ngFor="let link of watchLinks">
+        <a href="{{link}}" target="_blank">{{link}}</a>
+      </li>
+    </ul>
+
   </p-card>
 </div>
 
