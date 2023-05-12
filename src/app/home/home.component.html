@@ -14,11 +14,8 @@
       <tr>
         <td>{{trackedMedia.title}}</td>
         <td>{{trackedMedia.year}}</td>
-
-
-        <td><p-tag [value]="trackedMedia.trackedState" [severity]="'success'"></p-tag></td>
-
-        <td><p-button>Delete</p-button></td>
+        <td><p-tag [value]="TrackedState[trackedMedia.trackedState].toString()" [severity]="'success'"></p-tag></td>
+        <td><p-button (onClick)="listDelete(trackedMedia.id)">Delete</p-button></td>
       </tr>
     </ng-template>
   </p-table>

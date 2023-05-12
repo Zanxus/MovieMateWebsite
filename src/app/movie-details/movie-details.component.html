@@ -41,9 +41,12 @@
       </div>
     </div>
 
-    <div *ngFor="let link of watchLinks$">
-      <link href="{{link}}">
-    </div>
+    <ul>
+      <li *ngFor="let link of watchLinks">
+        <a href="{{link}}" target="_blank">{{link}}</a>
+      </li>
+    </ul>
+
   </p-card>
 </div>
 

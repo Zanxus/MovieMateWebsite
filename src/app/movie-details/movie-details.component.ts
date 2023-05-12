@@ -7,7 +7,6 @@ import { TrackedMedia, TrackedState } from 'src/app/models/TrackedMedia';
 import {AuthenticationService} from "../authentication.service";
 import {TrackedMediaService} from "../tracked-media.service";
 import {SteamingServiceAPIService} from "../steaming-service-api.service";
-import {getXHRResponse} from "rxjs/internal/ajax/getXHRResponse";
 
 @Component({
   selector: 'app-movie-details',
@@ -18,7 +17,7 @@ export class MovieDetailsComponent implements OnInit {
   movie$! : Observable<Movie>;
   trackedMedia!: TrackedMedia;
   movie!: Movie;
-  watchLinks$!: string[]
+  watchLinks!: string[]
   imdbId!: string;
   public trackedStateOptions = [
     { label: 'Plan to Watch', value: TrackedState.PlanToWatch },
@@ -33,8 +32,10 @@ export class MovieDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: HttpClient, private mediaService: TrackedMediaService,private authService: AuthenticationService,private streamingService : SteamingServiceAPIService ) {
   }
   ngOnInit() {
-    this.watchLinks$ = this.getStreamingServiceInfo()
-
+    //this.watchLinks = this.getStreamingServiceInfo()
+    this.route.params.subscribe((params: Params) => {
+      const id = params['id'];
+      this.imdbId = params['id'];});
     this.movie = this.route.snapshot.data['movie'];
     //this.movie$ = this.route.snapshot.data['movie'];
     console.log(this.movie, "mark test")
@@ -53,7 +54,7 @@ export class MovieDetailsComponent implements OnInit {
             console.log("data",data)
             let danishstreamingInfo = data.result.streamingInfo.dk;
             console.log("danishstreamingInfo",danishstreamingInfo)
-            if (!danishstreamingInfo.isUndefined()){
+            if (!danishstreamingInfo.isUndefined){
               for (let i = 0 ; i < Object.keys(danishstreamingInfo).length; i++) {
                 console.log("streamingInfo", danishstreamingInfo[Object.keys(danishstreamingInfo)[i]][0])
                 watchList.push(danishstreamingInfo[Object.keys(danishstreamingInfo)[i]][0].link);
@@ -88,12 +89,14 @@ export class MovieDetailsComponent implements OnInit {
       //this.trackedMediaService.update(this.trackedMedia).subscribe();
     } else {
       // Create a new tracked media if it doesn't exist yet for this user and movie
-      //const newTrackedMedia: TrackedMedia = {
-
-        //imdbId: imdbId,
-        //trackedState: state
-      //};
-      //this.trackedMediaService.create(newTrackedMedia).subscribe(tm => this.trackedMedia = tm);
+      const newTrackedMedia: TrackedMedia = {
+        id: 0,
+        imdbId: this.imdbId,
+        trackedState: this.selectedState,
+        userId: this.authService.getUserId()
+      };
+      this.mediaService.create(newTrackedMedia).subscribe(tm => this.trackedMedia = tm);
+      console.log(newTrackedMedia, "media")
     }
   }
 
