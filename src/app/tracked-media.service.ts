@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {forkJoin, Observable} from "rxjs";
+import {forkJoin, Observable, Subscription} from "rxjs";
 import {TrackedMedia, TrackedMediaSimple, TrackedState} from "./models/TrackedMedia";
 import {AuthenticationService} from "./authentication.service";
 import {map} from "rxjs/operators";
@@ -34,8 +34,8 @@ export class TrackedMediaService {
     return this.http.put(`${this.apiUrl}/${trackedMedia.id}`, trackedMedia);
   }
 
-  delete(id: number): Observable<object> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+  delete(id: number): any {
+    return this.http.delete(`${this.apiUrl}/${id}`,{ responseType:'json',observe:'response'});
   }
 
   getuserMedia() :TrackedMedia[] {

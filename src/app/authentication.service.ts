@@ -67,6 +67,7 @@ export class AuthenticationService {
     if (token) {
       payload = token.split(".")[1];
       payload = window.atob(payload);
+      console.log(payload);
       return JSON.parse(payload).UserId;
     } else {
       return null;

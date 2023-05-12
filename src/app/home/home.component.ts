@@ -5,7 +5,7 @@ import {TrackedMediaService} from "../tracked-media.service";
 import {TrackedMedia, TrackedState} from 'src/app/models/TrackedMedia';
 import {TrackedListMedia} from "../models/trackedListMedia";
 import {Movie} from "../models/movie";
-import {forkJoin, Observable} from "rxjs";
+import {forkJoin, Observable, timeout} from "rxjs";
 
 
 @Component({
@@ -24,8 +24,22 @@ export class HomeComponent implements OnInit  {
 
   listDelete(id : number){
 
-    this.trackedMediaService.delete(id).subscribe()
-    location.reload()
+    this.trackedMediaService.delete(id).subscribe({
+      next : (value: any) => {
+
+        console.log(value)
+        setTimeout(() => {
+          location.reload()
+        },500)
+      },
+      error:(err: any) => {
+        console.log(err)
+      },
+      complete:() => {
+
+      }
+    });
+
 
   }
 
